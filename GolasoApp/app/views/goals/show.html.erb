@@ -1,0 +1,33 @@
+<h1><%= @goal.title %></h1>
+Goalkeeper: <%= link_to @goal.owner.username, user_url(@goal.owner) %>
+
+
+<h3>Description</h3>
+<p>
+  <%= @goal.description %>
+</p>
+
+<%= "COMPLETED!!!!!!!!!!!!!!!!!!!!!!!!"  if @goal.completed? %>
+<br>
+<% if current_user == @goal.owner %>
+  <%= button_to "Complete", complete_goal_url(@goal), method: :patch unless @goal.completed? %>
+  <%= link_to "Edit", edit_goal_url(@goal) %>
+  <%= button_to "Delete", goal_url(@goal), method: :delete %>
+<% end %>
+
+<br>
+
+<% if current_user != @goal.owner && !@goal.cheerers.include?(current_user) %>
+  <%= button_to "Cheer this GOAL", cheer_goal_url(@goal), method: :patch %>
+<% elsif @goal.cheerers.include?(current_user) %>
+  <%= "Thanks for cheering on this goal!" %>
+<% end %>
+
+<%= render 'layouts/errors' %>
+
+<br>
+
+<%= render 'layouts/comment', commentable: @goal %>
+<br>
+
+<%= link_to 'Cheerleader Board', goals_url %>

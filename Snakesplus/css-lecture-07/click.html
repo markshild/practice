@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+
+  html, body, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .group:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  body {
+    text-align: center;
+  }
+
+  ul {
+    margin: 50px auto;
+    list-style: none;
+    background-image: url("img/cat.jpg");
+    background-size: cover;
+    border: 5px solid black;
+    width: 300px;
+  }
+
+  li {
+    float: left;
+    width: 90px;
+    height: 90px;
+    background: gray;
+    border: 5px solid black;
+    cursor: pointer;
+  }
+
+  li.active {
+    background: transparent;
+  }
+
+  li:hover {
+    background: yellow;
+  }
+
+  </style>
+</head>
+<body>
+
+
+  <ul class="grid group">
+    <li></li>
+    <li></li>
+    <li></li>
+
+    <li></li>
+    <li></li>
+    <li></li>
+
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <button>Add Another Row</button>
+
+<script src="js/jquery.js"></script>
+<script>
+
+$(document).on("ready", function(){
+
+  /*
+  When we run a jQuery selector like $("ul"),
+  we only grab the `<ul>` tags that are on the
+  page at the time this line of code was run.
+  Since we're adding <li>s later to the game,
+  we don't want to bind to them directly, rather
+  we bind our events to the <ul>, relying on the
+  fact that events bubble up. We can then ask
+  jQuery to select only events that were
+  trigged on <li>s.
+  */
+
+  $("ul").on("click", "li", function(event){
+
+    console.log("event -->", event);
+    console.log("event.currentTarget -->", event.currentTarget);
+
+    var $li = $(event.currentTarget);
+
+    $li.toggleClass("active");
+
+  });
+
+  $("button").on("click", function(event){
+
+    var $html = $("<li></li><li></li><li></li>");
+
+    $(".grid").append($html);
+
+  });
+
+
+  // Uncomment this to see how events bubble!
+  // This gets triggered even when I click a <li> element.
+
+  // $("body").on("click", function(){
+  //   alert("i was clicked");
+  // });
+
+
+});
+
+</script>
+
+</body>
+</html>

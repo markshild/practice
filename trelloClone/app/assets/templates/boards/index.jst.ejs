@@ -1,0 +1,12 @@
+<h2 class="board-title">Boards</h2>
+<ul class="boards">
+  <% boards.each(function (board) { %>
+    <li>
+      <a href="#/boards/<%= board.id %>">
+          <%= board.escape("title") %>
+      </a>
+      <button data-id="<%= board.id %>" class="delete">Delete Board</button>
+    </li>
+    <% }); %>
+</ul>
+<a href="#/boards/new">Add A Board</a>

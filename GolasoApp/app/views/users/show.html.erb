@@ -1,0 +1,26 @@
+<h1><%= @user.username %></h1>
+
+<h3>Goals</h3>
+<table>
+  <tr>
+    <th>
+      Title
+    </th>
+  </tr>
+  <% @user.goals.each do |goal| %>
+  <% next if @user != current_user && goal.status == 'Private' %>
+    <tr>
+      <td><%= link_to goal.title, goal_url(goal) %> </td>
+      <td>
+        <%= button_to "Delete", goal_url(goal), method: :delete if @user == current_user %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add Goal", new_user_goal_url(@user) if @user == current_user %>
+<br>
+
+<%= render 'layouts/errors' %>
+
+<%= render 'layouts/comment', commentable: @user %>

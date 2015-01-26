@@ -1,0 +1,29 @@
+<h1>Edit Track</h1>
+
+<form action="<%= albums_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="PUT">
+
+  <label for="name">Album Name</label><input id ="name"type="text"
+  name="album[name]" value="<%=@album.name%>">
+  <br>
+  <label for="Band">Band Name</label>
+  <select id ="Band"type="select" name="album[band_id]">
+    <% @bands.each do |band|%>
+    <option value="<%= band.id  %>" <%= "selected" if @album.band_id = band.id %>>
+    <%= band.name %></option>
+    <% end %>
+  </select>
+  <br>
+
+  Album Recording Type
+  <input id ="Type S" type="radio" name="album[album_type]" value="Studio"
+    <%= "checked" if @album.album_type = "Studio" %>>
+  <label for="Type S">Studio</label>
+
+  <input id ="Type L" type="radio" name="album[album_type]" value="Live"
+    <%= "checked" if @album.album_type = "Live" %>>
+  <label for="Type L">Live</label>
+  <br>
+  <input type="Submit" value="Submit">
+</form>

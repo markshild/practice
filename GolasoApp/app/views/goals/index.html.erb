@@ -1,0 +1,22 @@
+<h1>Cheerleader Board</h1>
+
+<table>
+  <tr>
+    <th>Cheers</th>
+    <th>Goal</th>
+    <th>Goalkeeper</th>
+  </tr>
+  <% @goals.each do |goal| %>
+    <tr>
+      <td>
+        <%= goal.cheer_count %>
+      </td>
+      <td>
+        <%= link_to goal.title, goal_url(goal) %>
+      </td>
+      <td>
+        <%= link_to goal.owner.username, user_url(goal.owner) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

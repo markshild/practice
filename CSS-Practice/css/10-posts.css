@@ -1,0 +1,58 @@
+/* PHASE 10: Posts */
+section.post {
+  margin: 0px;
+  border-top: 1px solid #ccc;
+  display: block;
+  width: 100%
+}
+section.meat section.form {
+  width: 100%;
+}
+
+section.post-text {
+  float: left;
+  display: block;
+  width: 540px;
+  margin: 20px 10px;
+  margin-right: 0;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+section.post p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+section.post ul.left {
+  float: left;
+}
+
+section.post ul.right {
+  float: right;
+}
+
+section.post li {
+  float: left;
+}
+
+section.post ul.left li {
+  color: #aaa;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+section.post ul.left li:nth-child(-n+2):after {
+  content: "·";
+  padding-left: 5px;
+}
+
+section.post ul.right li {
+  margin-left: 10px;
+}
+
+section.post > a {
+  margin-top: 20px;
+}

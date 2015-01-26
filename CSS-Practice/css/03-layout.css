@@ -1,0 +1,31 @@
+/* PHASE 3: Layout */
+main.content {
+  background: white;
+  min-height: 240px;
+  width: 900px;
+  margin: auto;
+  border: 1px solid #ccc;
+}
+.meat:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  background: #ccc;
+}
+
+main section.sidebar {
+  float: left;
+  /*border-right: 1px solid #ccc;*/
+  width: 240px;
+  min-height: 240px;
+}
+
+main section.meat {
+  float: left;
+  min-height: 240px;
+  position: relative;
+}

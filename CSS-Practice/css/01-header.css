@@ -1,0 +1,55 @@
+/* PHASE 1: Header */
+
+body {
+  font-style: inherit;
+  font-size: 16px;
+  font-family: "Roboto";
+  font_weight: 400;
+  background: #eee;
+}
+
+header {
+  background: #f00;
+  color: white;
+}
+
+nav {
+  width: 900px;
+  margin: auto;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+a.header-left {
+  float: left;
+}
+
+ul.header-right {
+  float: right;
+}
+
+ul.header-right > li {
+  float: left;
+  padding: 10px 20px;
+  border-left: 1px solid white;
+}
+
+
+nav > a {
+  color: white;
+  margin: auto;
+  font-weight: 700;
+  border-right: 1px solid white;
+  padding: 10px 20px;
+}
+
+nav > a:hover {
+  background: black;
+}
+ul.header-right > li:hover {
+  background: black;
+
+}
+
+nav a {
+  color: white;
+}

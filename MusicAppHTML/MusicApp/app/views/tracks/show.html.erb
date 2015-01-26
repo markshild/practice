@@ -1,0 +1,16 @@
+<h1> <%= @track.name %> </h1>
+<h2> From the album <%= @track.album.name %> by <%= @track.album.band.name %> </h2>
+Track Type: <%= @track.track_type %>
+<br>
+Lyrics: <%= ugly_lyrics(@track.lyrics) %>
+<br>
+<%= render "notes/form", locals: {track: @track} %>
+<br>
+<% @track.notes.each do |note| %>
+  <%= render partial: "notes/note", object: note %>
+<% end %>
+<br>
+<%= link_to  @track.album.name, album_url(@track.album_id) %>
+<br>
+
+<%= link_to "Band Index", bands_url %>

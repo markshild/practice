@@ -1,0 +1,87 @@
+/* PHASE 9: Forms */
+.meat {
+  padding: 20px 19px;
+  width: 620px;
+}
+
+.input {
+  display: block;
+  width: 89%;
+
+}
+
+label.input {
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  padding: 19px 0px 5px 19px;
+}
+
+label.input2 {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  padding: 20px 0px 5px 19px;
+}
+
+input.input, textarea.input {
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 19px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input.input:focus, textarea.input:focus {
+  border: 1px solid #0a0;
+  outline: none;
+}
+
+textarea.input {
+  margin-bottom: 20px;
+  height: 120px;
+}
+
+form {
+  float: left;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+  width: 536px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+div.submit {
+  margin-left: 19px;
+  margin-bottom: 21px;
+}
+
+div.submit button {
+  background: #0c0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 5px;
+  box-shadow: 0 3px 0 #070;
+  color: white;
+  position: relative;
+  outline: none;
+  font-weight: 700;
+}
+
+div.submit button:active {
+  top: 3px;
+  box-shadow: none;
+}
+
+div.submit strong {
+  margin-left: 5px;
+}
+
+div.submit strong:hover {
+  cursor: pointer;
+  color: red;
+}

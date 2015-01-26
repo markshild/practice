@@ -1,0 +1,7 @@
+<%= note.body %>
+<br>
+<%= note.user.email %>
+<% if current_user.id == note.user_id %>
+<%= button_to("Delete Note", track_note_url(note.track_id, note), method: :delete) %>
+<% end %>
+<br>

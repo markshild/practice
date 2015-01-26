@@ -1,0 +1,55 @@
+<% button = ''
+    action_url = ''
+    hidden = ''
+  if cat.persisted?
+    button = "Edit"
+    action_url = cat_url(cat)
+    hidden = "<input type='hidden' name='_method' value='PATCH'>".html_safe
+  else
+    button = "Create"
+    action_url = cats_url
+  end
+    %>
+
+<form action="<%= action_url %>" method="post">
+  <input
+  name="authenticity_token"
+  type="hidden"
+  value="<%= form_authenticity_token %>">
+  <%= hidden %>
+
+  <label for="cat_name">Cat's name:</label>
+  <input type="text" name="cat[name]" id="cat_name" value="<%=cat.name%>" >
+
+  <br>
+  SEX PLEASE
+  <input type="radio" name="cat[sex]" id="cat_sex_female" value="F" <%= "checked" if cat.sex == 'F'%>>
+  <label for="cat_sex_female">Female</label>
+
+  <input type="radio" name="cat[sex]" id="cat_sex_male" value="M" <%= "checked" if cat.sex == 'M'%>>
+  <label for="cat_sex_male">Male</label>
+
+  <br>
+
+  <label for="cat_color">Color:</label>
+  <select name="cat[color]" id="cat_color">
+    <option value="">SELECT A COLOR</option>
+    <% Cat::COLORS.each do |color| %>
+    <option value="<%=color%>" <%= "selected" if cat.color == color%>><%=color.capitalize%></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="cat_bday">Cat's Berfday</label>
+  <input type="date" name="cat[birthdate]" id="cat_bday" value="<%= cat.birthdate %>">
+
+  <br>
+
+  <label for="cat_description">Cat's Life Story</label>
+  <textarea name="cat[description]" id="cat_description"><%= cat.description %></textarea>
+
+  <br>
+
+  <input type="submit" value="<%= button %> Cat">
+</form>

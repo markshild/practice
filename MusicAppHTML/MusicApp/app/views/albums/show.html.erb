@@ -1,0 +1,25 @@
+<h1> <%= @album.name %> </h1>
+<h2> From the band <%= @album.band.name %> </h2>
+<table>
+  <tr>
+    <td>Track</td>
+    <td>Track Type</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+<% @album.tracks.each do |track| %>
+  <tr>
+    <td><%= link_to track.name, track_url(track)%></td>
+    <td><%= track.track_type %></td>
+    <td><%= link_to "Edit Track", edit_track_url(track)%></td>
+    <td><%= button_to "Delete Track", track_url(track), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+
+<%= link_to "Add a Track", new_album_track_url(@album) %>
+<br>
+<%= link_to  @album.band.name, band_url(@album.band_id) %>
+<br>
+<%= link_to "Band Index", bands_url %>

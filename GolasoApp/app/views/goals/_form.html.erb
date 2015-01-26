@@ -1,0 +1,30 @@
+<%= render 'layouts/errors' %>
+
+<% f_action = goal.persisted? ? goal_url(goal) : goals_url %>
+
+
+<form action="<%= f_action %>" method="post">
+  <%= auth_token %>
+  <% if goal.persisted? %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <label>Title
+    <input type="text" name="goal[title]" value="<%= goal.title %>">
+  </label>
+
+  <label>Description
+    <textarea name="goal[description]" rows="8" cols="40"><%= goal.description %></textarea>
+  </label>
+
+
+  <label>Status</label>
+  <label><input type="radio" name="goal[status]" value="Private"
+    <%= "checked" if goal.status == "Private" %>>Private</label>
+
+  <label><input type="radio" name="goal[status]" value="Public"
+    <%= "checked" if goal.status == "Public" %>>Public</label>
+
+  <input type="submit" value="Submit">
+
+</form>

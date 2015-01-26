@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ninety9Cats</title>
+  <% if current_user %>
+    <h4><%=current_user.user_name%><h4>
+    <form action="<%= session_url %>" method="post">
+      <input
+      name="authenticity_token"
+      type="hidden"
+      value="<%= form_authenticity_token %>">
+      <input type='hidden' name='_method' value='DELETE'>
+      <input type="Submit" value="Log Out">
+    </form>
+  <% else%>
+    <h4><a href="<%= new_session_url %>"> Log In </a><h4>
+  <%end%>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<% if current_user.follows?(user) %>
+  <% initial = "followed"  %>
+<% else %>
+  <% initial = "unfollowed"  %>
+<% end %>
+
+  <button data-user-id="<%= user.id %>" class="follow-toggle"
+    data-initial-follow-state="<%= initial %>">
+
+</button>
